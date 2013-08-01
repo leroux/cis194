@@ -2,6 +2,7 @@ module Golf where
 
 import Data.List
 
+-- Exercise 1
 skips :: [a] -> [[a]]
 skips l = reverse $ skips' (length l - 1) l
   where skips' 0 xs = [xs]
@@ -15,12 +16,14 @@ takeEvery n xs
     | otherwise = []
   where xs' = drop n xs
 
+-- Exercise 2
 localMaxima :: [Integer] -> [Integer]
 localMaxima (x:xs@(y:z:_))
     | y > x && y > z = y : localMaxima xs
     | otherwise = localMaxima xs
 localMaxima _ = []
 
+-- Exercise 3
 histogram :: [Integer] -> String
 histogram xs = (unlines . reverse) (buildhisto xs) ++ "==========\n0123456789"
 
